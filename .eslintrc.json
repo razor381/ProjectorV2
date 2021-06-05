@@ -1,0 +1,24 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "eslint-config-leapfrog",
+        "prettier"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "rules": {
+        "camelcase": [
+            "error",
+            {
+                "properties": "never"
+            }
+        ],
+        "no-console": "warn"
+    }
+}
