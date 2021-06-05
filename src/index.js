@@ -63,10 +63,7 @@ process.on('uncaughtException', (err) => {
 });
 
 process.once('SIGNUSR2', () => {
-  process.kill(process.id, 'SIGUSR2');
+  process.kill(process.pid, 'SIGUSR2');
 });
 
-// handle user ^C input
-process.on('SIGINT', () => {
-  process.kill(process.id, 'SIGINT');
-});
+
