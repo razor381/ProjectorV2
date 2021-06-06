@@ -27,6 +27,6 @@ router.put('/:id', postController.update);
 /**
  * DELETE /api/posts/:id.
  */
-router.delete('/:id', postController.delete);
+router.delete('/:id', postController.remove);
 
 export default router;

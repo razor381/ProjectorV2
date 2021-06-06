@@ -6,6 +6,7 @@ import knexConfig from './knexfile';
 const knex = knexJs(knexConfig);
 const bookshelf = bookshelfJs(knex);
 
-bookshelf.plugin(['bookshelf-virtuals-plugin']);
+// @TODO enabling plugin gives error, uncomment and fix in future.
+// bookshelf.plugin('bookshelf-virtuals-plugin');
 
 export default bookshelf;
