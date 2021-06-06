@@ -1,6 +1,6 @@
 import HttpStatus from 'http-status-codes';
 
-import userService from '../services/userServices';
+import * as userServices from '../services/userServices';
 
 /**
  * Get all users.
@@ -10,7 +10,7 @@ import userService from '../services/userServices';
  * @param {Function} next
  */
 export function fetchAll(req, res, next) {
-  userService
+  userServices
     .getAllUsers()
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -24,7 +24,7 @@ export function fetchAll(req, res, next) {
  * @param {Function} next
  */
 export function fetchById(req, res, next) {
-  userService
+  userServices
     .getUser(req.params.id)
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -38,7 +38,7 @@ export function fetchById(req, res, next) {
  * @param {Function} next
  */
 export function create(req, res, next) {
-  userService
+  userServices
     .createUser(req.body)
     .then((data) => res.status(HttpStatus.CREATED).json({ data }))
     .catch((err) => next(err));
@@ -52,7 +52,7 @@ export function create(req, res, next) {
  * @param {Function} next
  */
 export function update(req, res, next) {
-  userService
+  userServices
     .updateUser(req.params.id, req.body)
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -66,7 +66,7 @@ export function update(req, res, next) {
  * @param {Function} next
  */
 export function remove(req, res, next) {
-  userService
+  userServices
     .deleteUser(req.params.id)
     .then((data) => res.status(HttpStatus.NO_CONTENT).json({ data }))
     .catch((err) => next(err));

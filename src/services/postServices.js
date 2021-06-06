@@ -8,7 +8,7 @@ import Post from '../models/post';
  * @returns {Promise}
  */
 export function getAllPosts() {
-  return Post.fetchAll();
+  return Post.fetchAll({ withRelated: ['user'] });
 }
 
 /**
@@ -19,7 +19,7 @@ export function getAllPosts() {
  */
 export function getPost(id) {
   return new Post({ id })
-    .fetch()
+    .fetch({ withRelated: ['user'] })
     .then((post) => post)
     .catch(Post.NotFoundError, () => {
       throw Boom.notFound('No post found with give id');

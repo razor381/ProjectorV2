@@ -1,16 +1,77 @@
 @api=http://localhost:3000/api
 
-###
-# root
-GET http://localhost:3000/api
-Content-Type: application/json
+
+
+# User apis
 
 ###
-# POST root
-POST http://localhost:3000/api
+# Get all users
+GET http://localhost:3000/api/users
+
+###
+# Get user by id
+GET http://localhost:3000/api/users/1
+
+###
+# Create new user
+POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "message": "hello",
+  "name": "user2",
+  "email": "user2@projectorv2.io",
+  "password": "test1234",
+  "password_confirm": "test1234"
 }
 
+###
+# Update user
+PUT http://localhost:3000/api/users/1
+Content-Type: application/json
+
+{
+  "email": "user1@projectorv2.io"
+}
+
+###
+# Delete user
+DELETE http://localhost:3000/api/users/2
+
+
+
+
+# Post apis
+
+###
+# Get all posts
+GET http://localhost:3000/api/posts
+
+###
+# Get post by id
+GET http://localhost:3000/api/posts/2
+
+###
+# Create new post
+POST http://localhost:3000/api/posts
+Content-Type: application/json
+
+{
+  "name": "post2",
+  "summary": "post 2 summary",
+  "description": "post 2 description"
+}
+
+###
+# Update post
+PUT http://localhost:3000/api/posts/2
+Content-Type: application/json
+
+{
+  "name": "post1",
+  "summary": "post 2 summary",
+  "description": "post 2 very long description"
+}
+
+###
+# Delete post
+DELETE http://localhost:3000/api/posts/2

@@ -7,18 +7,26 @@ const TABLE_NAME = 'posts';
  * @returns {Promise}
  */
 exports.up = function(knex) {
-  return knex.schema.createTable(TABLE_NAME, (t) => {
-    t.increments('id').unsigned().primary();
-    t.text('name').notNull();
-    t.string('summary').notNull();
-    t.string('description');
-    t.string('slug');
-    t.float('ratings_average', 2, 1).defaultTo(4.5);
-    t.integer('ratings_quantity').defaultTo(0);
-    t.string('image_cover').defaultTo('default_cover.jpg');
-    t.specificType('images', 'text ARRAY');
-    t.timestamp('created_at').notNull().defaultTo(knex.fn.now());
-    t.timestamp('updated_at').defaultTo(knex.fn.now());
+  return knex.schema.createTable(TABLE_NAME, (table) => {
+    table.increments().unsigned().primary();
+    table.text('name').notNull();
+    table.string('summary').notNull();
+    table.string('description');
+    table.string('slug');
+    table.float('ratings_average', 2, 1).defaultTo(4.5);
+    table.integer('ratings_quantity').defaultTo(0);
+    table.string('image_cover').defaultTo('default_cover.jpg');
+    table.specificType('images', 'text ARRAY');
+    table.timestamps(true, true);
+
+    table
+      .integer('user_id')
+      .notNull()
+      .references('id')
+      .inTable('users')
+      .index()
+      .onDelete('CASCADE');
+
   });
 };
 

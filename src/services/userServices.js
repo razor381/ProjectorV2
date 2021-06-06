@@ -19,7 +19,7 @@ export function getAllUsers() {
  */
 export function getUser(id) {
   return new User({ id })
-    .fetch()
+    .fetch({ withRelated: ['posts'] })
     .then((user) => user)
     .catch(User.NotFoundError, () => {
       throw Boom.notFound('No user found with give id');

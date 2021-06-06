@@ -1,4 +1,5 @@
 import bookshelf from '../db';
+import Post from './post';
 
 const TABLE_NAME = 'users';
 
@@ -18,6 +19,13 @@ class User extends bookshelf.Model {
    */
   get hasTimeStamps() {
     return true;
+  }
+
+  /**
+   *
+   */
+  posts() {
+    return this.hasMany(Post);
   }
 }
 

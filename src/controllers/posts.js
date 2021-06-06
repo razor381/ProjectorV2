@@ -1,6 +1,6 @@
 import HttpStatus from 'http-status-codes';
 
-import postService from '../services/postServices';
+import * as postServices from '../services/postServices';
 
 /**
  * Get all posts.
@@ -10,7 +10,7 @@ import postService from '../services/postServices';
  * @param {Function} next
  */
 export function fetchAll(req, res, next) {
-  postService
+  postServices
     .getAllPosts()
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -24,7 +24,7 @@ export function fetchAll(req, res, next) {
  * @param {Function} next
  */
 export function fetchById(req, res, next) {
-  postService
+  postServices
     .getPost(req.params.id)
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -38,7 +38,7 @@ export function fetchById(req, res, next) {
  * @param {Function} next
  */
 export function create(req, res, next) {
-  postService
+  postServices
     .createPost(req.body)
     .then((data) => res.status(HttpStatus.CREATED).json({ data }))
     .catch((err) => next(err));
@@ -52,7 +52,7 @@ export function create(req, res, next) {
  * @param {Function} next
  */
 export function update(req, res, next) {
-  postService
+  postServices
     .updatePost(req.params.id, req.body)
     .then((data) => res.json({ data }))
     .catch((err) => next(err));
@@ -66,7 +66,7 @@ export function update(req, res, next) {
  * @param {Function} next
  */
 export function remove(req, res, next) {
-  postService
+  postServices
     .deletePost(req.params.id)
     .then((data) => res.status(HttpStatus.NO_CONTENT).json({ data }))
     .catch((err) => next(err));
