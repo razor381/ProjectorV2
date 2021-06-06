@@ -22,7 +22,7 @@ export function getPost(id) {
     .fetch({ withRelated: ['user'] })
     .then((post) => post)
     .catch(Post.NotFoundError, () => {
-      throw Boom.notFound('No post found with give id');
+      throw Boom.notFound('No post found with given Id');
     });
 }
 

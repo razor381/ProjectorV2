@@ -18,24 +18,25 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "name": "user2",
-  "email": "user2@projectorv2.io",
+  "name": "user6",
+  "email": "user6@projectorv2.io",
   "password": "test1234",
   "password_confirm": "test1234"
 }
 
 ###
 # Update user
-PUT http://localhost:3000/api/users/1
+PUT http://localhost:3000/api/users/13
 Content-Type: application/json
 
 {
-  "email": "user1@projectorv2.io"
+  "name": "user13",
+  "email": "user13@projectorv2.io"
 }
 
 ###
 # Delete user
-DELETE http://localhost:3000/api/users/2
+DELETE http://localhost:3000/api/users/13
 
 
 
@@ -48,7 +49,7 @@ GET http://localhost:3000/api/posts
 
 ###
 # Get post by id
-GET http://localhost:3000/api/posts/2
+GET http://localhost:3000/api/posts/10
 
 ###
 # Create new post
@@ -56,22 +57,23 @@ POST http://localhost:3000/api/posts
 Content-Type: application/json
 
 {
-  "name": "post2",
-  "summary": "post 2 summary",
-  "description": "post 2 description"
+  "name": "post14",
+  "summary": "post 14 summary",
+  "description": "post 14 description",
+  "user_id": "1"
 }
 
 ###
 # Update post
-PUT http://localhost:3000/api/posts/2
+PUT http://localhost:3000/api/posts/11
 Content-Type: application/json
 
 {
-  "name": "post1",
-  "summary": "post 2 summary",
-  "description": "post 2 very long description"
+  "name": "post11",
+  "summary": "post 11 summary",
+  "description": "post 11 very long description"
 }
 
 ###
 # Delete post
-DELETE http://localhost:3000/api/posts/2
+DELETE http://localhost:3000/api/posts/11
