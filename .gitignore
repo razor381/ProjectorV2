@@ -19,7 +19,7 @@ node_modules
 .idea
 
 # Build directory
-dist
+# dist
 
 # Dotenv configuration
 .env
