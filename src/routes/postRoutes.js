@@ -27,6 +27,7 @@ router.get(
  */
 router.post(
   '/',
+  postValidator.findPostUser,
   postValidator.validatePost,
   postController.create,
 );
