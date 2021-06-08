@@ -7,6 +7,8 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node dist",
+    "build": "rimraf dist && babel src --copy-files --out-dir dist --source-maps",
     "test": "echo \"Error: no test specified\" && exit 1",
     "make:migration": "yarn knex migrate:make --knexfile src/knexfile.js",
     "make:seeder": "yarn knex seed:make --knexfile src/knexfile.js",
@@ -50,6 +52,7 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-leapfrog": "^3.0.0",
     "eslint-plugin-import": "^2.23.4",
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.7",
+    "rimraf": "^3.0.2"
   }
 }
