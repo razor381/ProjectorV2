@@ -1,6 +1,30 @@
 @api=http://localhost:3000/api
 
 
+# Auth apis
+
+###
+# Signup new user
+POST http://localhost:3000/api/auth/signup
+Content-Type: application/json
+
+{
+  "name": "James Gosling",
+  "email": "james@example.com",
+  "password": "test1234",
+  "password_confirm": "test1234"
+}
+
+###
+# Login user
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "eliz@example.com",
+  "password": "test1234"
+}
+
 
 # User apis
 
@@ -18,8 +42,8 @@ POST http://localhost:3000/api/users
 Content-Type: application/json
 
 {
-  "name": "user6",
-  "email": "user6@projectorv2.io",
+  "name": "user10",
+  "email": "user10@projectorv2.io",
   "password": "test1234",
   "password_confirm": "test1234"
 }
@@ -49,7 +73,7 @@ GET http://localhost:3000/api/posts
 
 ###
 # Get post by id
-GET http://localhost:3000/api/posts/10
+GET http://localhost:3000/api/posts/1
 
 ###
 # Create new post
@@ -77,3 +101,4 @@ Content-Type: application/json
 ###
 # Delete post
 DELETE http://localhost:3000/api/posts/11
+

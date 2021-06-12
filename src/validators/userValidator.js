@@ -8,7 +8,6 @@ const schema = Joi.object({
   name: Joi
     .string()
     .label('Name')
-    .alphanum()
     .min(4)
     .max(30),
 
@@ -21,9 +20,20 @@ const schema = Joi.object({
     .string()
     .label('Photo'),
 
-  password: Joi.string(),
+  password: Joi
+    .string()
+    .min(8)
+    .required()
+    .messages({
+      'any.required': 'Password field cannot be empty!'
+    }),
 
-  password_confirm: Joi.ref('password'),
+  password_confirm: Joi
+    .any()
+    .valid(Joi.ref('password'))
+    .required()
+    .label('Password Confirmation')
+    .messages({ 'any.only': '{{#label}} does not match' }),
 
   role: Joi
     .string()
