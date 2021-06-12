@@ -67,7 +67,7 @@ export function create(req, res, next) {
  */
 export function update(req, res, next) {
   commentServices
-    .updateComment(req.params.id, req.body)
+    .updateComment(req.params.id, req.user.id, req.body)
     .then((data) => res.status(HttpStatus.OK).json({ data }))
     .catch((err) => next(err));
 }

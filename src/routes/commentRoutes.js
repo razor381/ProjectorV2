@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import * as commentController from '../controllers/comments';
-// import * as commentValidator from '../validators/commentValidator';
+import * as commentValidator from '../validators/commentValidator';
 import setLoggedInUser from '../middlewares/auth/setLoggedInUser';
 
 const router = Router();
@@ -22,7 +22,7 @@ router.get(
   commentController.fetchById,
 );
 
-// routes below requires user to login
+// routes after this middleware requires authenticated user
 router.use(setLoggedInUser);
 
 /**
@@ -30,8 +30,8 @@ router.use(setLoggedInUser);
  */
 router.put(
   '/:id',
-  // commentValidator.findComment,
-  // commentValidator.validateComment,
+  commentValidator.findComment,
+  commentValidator.validateComment,
   commentController.update,
 );
 
@@ -40,7 +40,7 @@ router.put(
  */
 router.delete(
   '/:id',
-  // commentValidator.findComment,
+  commentValidator.findComment,
   commentController.remove,
 );
 

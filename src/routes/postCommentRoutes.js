@@ -1,7 +1,7 @@
 import { Router } from 'express';
 
 import * as commentController from '../controllers/comments';
-// import * as commentValidator from '../validators/commentValidator';
+import * as commentValidator from '../validators/commentValidator';
 import setLoggedInUser from '../middlewares/auth/setLoggedInUser';
 import setPostUserIds from '../middlewares/setPostUserIds';
 
@@ -23,7 +23,7 @@ const router = Router({ mergeParams: true });
   '/',
   setLoggedInUser,
   setPostUserIds,
-  // commentValidator.validateComment,
+  commentValidator.validateComment,
   commentController.create,
 );
 

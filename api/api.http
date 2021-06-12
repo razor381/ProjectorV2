@@ -1,11 +1,12 @@
 @api=http://localhost:3000/api
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTI1MDQzLCJleHAiOjE2MzEzMDEwNDN9.o8pTAA_JXE5zE_xJlt4wi6bz6E4YRMmFIrqg13yCAvg
 
 
 # Auth apis
 
 ###
 # Signup new user
-POST http://localhost:3000/api/auth/signup
+POST {{api}}/auth/signup
 Content-Type: application/json
 
 {
@@ -17,11 +18,11 @@ Content-Type: application/json
 
 ###
 # Login user
-POST http://localhost:3000/api/auth/login
+POST {{api}}/auth/login
 Content-Type: application/json
 
 {
-  "email": "jennifer@example.com",
+  "email": "admin@projectorv2.io",
   "password": "test1234"
 }
 
@@ -30,15 +31,15 @@ Content-Type: application/json
 
 ###
 # Get all users
-GET http://localhost:3000/api/users
+GET {{api}}/users
 
 ###3
 # Get user by id
-GET http://localhost:3000/api/users/1
+GET {{api}}/users/1
 
 ###
 # Create new user
-POST http://localhost:3000/api/users
+POST {{api}}/users
 Content-Type: application/json
 
 {
@@ -50,7 +51,7 @@ Content-Type: application/json
 
 ###
 # Update user
-PUT http://localhost:3000/api/users/21
+PUT {{api}}/users/21
 Content-Type: application/json
 
 {
@@ -60,7 +61,7 @@ Content-Type: application/json
 
 ###
 # Delete user
-DELETE http://localhost:3000/api/users/21
+DELETE {{api}}/users/21
 
 
 
@@ -69,15 +70,15 @@ DELETE http://localhost:3000/api/users/21
 
 ###
 # Get all posts
-GET http://localhost:3000/api/posts
+GET {{api}}/posts
 
 ###
 # Get post by id
-GET http://localhost:3000/api/posts/1
+GET {{api}}/posts/1
 
 ###
 # Create new post
-POST http://localhost:3000/api/posts
+POST {{api}}/posts
 Content-Type: application/json
 
 {
@@ -89,7 +90,7 @@ Content-Type: application/json
 
 ###
 # Update post
-PUT http://localhost:3000/api/posts/7
+PUT {{api}}/posts/7
 Content-Type: application/json
 
 {
@@ -100,7 +101,7 @@ Content-Type: application/json
 
 ###
 # Delete post
-DELETE http://localhost:3000/api/posts/7
+DELETE {{api}}/posts/7
 
 
 
@@ -108,38 +109,38 @@ DELETE http://localhost:3000/api/posts/7
 
 ###
 # Get all comments related to a post
-GET http://localhost:3000/api/posts/2/comments
+GET {{api}}/posts/6/comments
 
 ###
 # Create new comment
-POST http://localhost:3000/api/posts/2/comments
+POST {{api}}/posts/6/comments
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzNTE5NjQxLCJleHAiOjE2MzEyOTU2NDF9.EMyjIWnVZgIS3CsbB9fX4wqvsu6mdoFQ8RT0KMuuKzE
+Authorization: Bearer {{token}}
 
 {
-  "comment": "loulou's new comment on post 2"
+  "comment": "New comment from admin for post 6"
 }
 
 ###
 # Get all comments
-GET http://localhost:3000/api/comments
+GET {{api}}/comments
 
 ###
 # Get comment by id
-GET http://localhost:3000/api/comments/41c04f51-91ba-437e-ba53-8c80c8a28f1d
+GET {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
 
 ###
 # Update comment
-PUT http://localhost:3000/api/comments/0ca882e7-0835-4042-9521-74cb546fbcb5
+PUT {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzNTE5NjQxLCJleHAiOjE2MzEyOTU2NDF9.EMyjIWnVZgIS3CsbB9fX4wqvsu6mdoFQ8RT0KMuuKzE
+Authorization: Bearer {{token}}
 
 {
-  "comment": "Dras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt"
+  "comment": "New edited comment from admin for post 6"
 }
 
 ###
 # Delete comment
-DELETE http://localhost:3000/api/comments/598926c4-d0b0-48a6-a4ca-9d5759f71461
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNjIzNTIzNDc2LCJleHAiOjE2MzEyOTk0NzZ9.Yi7ftckizknK5h3AaUceE5JW65crQKYGlLN-uhwXADU
+DELETE {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
+Authorization: Bearer {{token}}
 

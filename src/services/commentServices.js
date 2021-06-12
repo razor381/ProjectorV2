@@ -48,11 +48,12 @@ export function createComment(body) {
  * Update a comment.
  *
  * @param {String} id
+ * @param {String} user
  * @param {Object} comment
  * @returns {Promise}
  */
-export function updateComment(id, comment) {
-  return new Comment({ id }).save(comment);
+export function updateComment(id, user, comment) {
+  return new Comment({ id, user }).save(comment);
 }
 
 /**
