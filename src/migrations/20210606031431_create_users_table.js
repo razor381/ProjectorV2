@@ -13,7 +13,7 @@ exports.up = function(knex) {
     table.string('email').notNull().unique();
     table.string('photo').defaultTo('default_photo.jpg');
     table.string('password').notNull();
-    table.string('password_confirm').notNull();
+    table.string('password_confirm');
     table.enu('role', ['user', 'admin', 'mentor']).defaultTo('user');
     table.boolean('active').defaultTo(1);
     table.string('passwordResetToken');

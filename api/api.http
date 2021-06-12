@@ -1,79 +1,162 @@
 @api=http://localhost:3000/api
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTcwMzY2LCJleHAiOjE2MzEzNDYzNjZ9.zdEisp83qyF8tt292hyvY4JImLqHC0ZvzTzs1rwURuE
 
+
+# Auth apis
+
+###
+# Signup new user
+POST {{api}}/auth/signup
+Content-Type: application/json
+
+{
+  "name": "James Gosling",
+  "email": "james@example.com",
+  "password": "test1234",
+  "password_confirm": "test1234"
+}
+
+###
+# Login user
+POST {{api}}/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@projectorv2.io",
+  "password": "test1234"
+}
 
 
 # User apis
 
 ###
 # Get all users
-GET http://localhost:3000/api/users
+GET {{api}}/users
 
-###
+###3
 # Get user by id
-GET http://localhost:3000/api/users/4
+GET {{api}}/users/1
 
 ###
 # Create new user
-POST http://localhost:3000/api/users
+POST {{api}}/users
 Content-Type: application/json
 
 {
-  "name": "user6",
-  "email": "user6@projectorv2.io",
+  "name": "user10",
+  "email": "user10@projectorv2.io",
   "password": "test1234",
   "password_confirm": "test1234"
 }
 
 ###
 # Update user
-PUT http://localhost:3000/api/users/13
+PUT {{api}}/users/21
 Content-Type: application/json
 
 {
-  "name": "user13",
-  "email": "user13@projectorv2.io"
+  "name": "user21",
+  "email": "user21@projectorv2.io"
 }
 
 ###
 # Delete user
-DELETE http://localhost:3000/api/users/13
+DELETE {{api}}/users/21
 
 
+# Logged In User apis
+
+###
+# Get current user data
+GET {{api}}/profile
+Authorization: Bearer {{token}}
+
+###
+# Update current user
+PUT {{api}}/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Rujal Shrestha"
+}
 
 
 # Post apis
 
 ###
 # Get all posts
-GET http://localhost:3000/api/posts
+GET {{api}}/posts
 
 ###
 # Get post by id
-GET http://localhost:3000/api/posts/10
+GET {{api}}/posts/7
 
 ###
 # Create new post
-POST http://localhost:3000/api/posts
+POST {{api}}/posts
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "name": "post14",
-  "summary": "post 14 summary",
-  "description": "post 14 description",
-  "user_id": "4"
+  "name": "post with image",
+  "summary": "test post with image",
+  "description": "post uploaded by admin, contains image file"
 }
 
 ###
 # Update post
-PUT http://localhost:3000/api/posts/11
+PUT {{api}}/posts/7
 Content-Type: application/json
 
 {
-  "name": "post11",
-  "summary": "post 11 summary",
-  "description": "post 11 very long description"
+  "name": "post7",
+  "summary": "post 7 summary",
+  "description": "post 7 very long description"
 }
 
 ###
 # Delete post
-DELETE http://localhost:3000/api/posts/11
+DELETE {{api}}/posts/7
+
+
+
+# Comment apis
+
+###
+# Get all comments related to a post
+GET {{api}}/posts/6/comments
+
+###
+# Create new comment
+POST {{api}}/posts/6/comments
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "comment": "New comment from admin for post 6"
+}
+
+###
+# Get all comments
+GET {{api}}/comments
+
+###
+# Get comment by id
+GET {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
+
+###
+# Update comment
+PUT {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "comment": "New edited comment from admin for post 6"
+}
+
+###
+# Delete comment
+DELETE {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
+Authorization: Bearer {{token}}
+

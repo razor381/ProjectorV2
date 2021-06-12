@@ -20,11 +20,9 @@ exports.up = function(knex) {
     table.timestamps(true, true);
 
     table
-      .integer('user_id')
+      .integer('user')
       .notNull()
-      .references('id')
-      .inTable('users')
-      .index()
+      .references('users.id')
       .onDelete('CASCADE');
   });
 };

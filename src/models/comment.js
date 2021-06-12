@@ -1,29 +1,29 @@
 import bookshelf from '../db';
 import User from './user';
-import Comment from './comment';
+import Post from './post';
 
-const TABLE_NAME = 'posts';
+const TABLE_NAME = 'comments';
 
 /**
- * User Model.
+ * Comment Model.
  */
-class Post extends bookshelf.Model {
+class Comment extends bookshelf.Model {
   /**
    * Get table name.
    */
   get tableName() {
-    return TABLE_NAME;
+    return TABLE_NAME
   }
 
   /**
    * Table has timestamps.
    */
-  get hasTimeStamps() {
+  get hasTimestamps() {
     return true;
   }
 
   /**
-   * Define belongs to user association.
+   * Define belongs to a user association.
    *
    * @returns {Model}
    */
@@ -32,13 +32,13 @@ class Post extends bookshelf.Model {
   }
 
   /**
-   * Define has many comments association.
+   * Define belongs to a post association.
    *
    * @returns {Model}
    */
-  comments() {
-    return this.hasMany(Comment, 'post');
+  post() {
+    return this.belongsTo(Post, 'post');
   }
 }
 
-export default Post;
+export default Comment;
