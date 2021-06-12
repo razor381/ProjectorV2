@@ -1,4 +1,3 @@
-import Boom from '@hapi/boom';
 import jwt from 'jsonwebtoken';
 
 import User from '../../models/user';

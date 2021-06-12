@@ -11,7 +11,7 @@ exports.seed = function(knex) {
       return knex('users').insert([
         {
           "name": "Rujal Shrestha",
-          "email": "admin@natours.io",
+          "email": "admin@projectorv2.io",
           "role": "admin",
           "photo": "user-1.jpg",
           "password": "$2a$12$Q0grHjH9PXc6SxivC8m12.2mZJ9BbKcgFpwSG4Y1ZEII8HJVzWeyS"

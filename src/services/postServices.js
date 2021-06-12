@@ -19,7 +19,7 @@ export function getAllPosts() {
  */
 export function getPost(id) {
   return new Post({ id })
-    .fetch({ withRelated: ['user'] })
+    .fetch({ withRelated: ['user', 'comments'] })
     .then((post) => post)
     .catch(Post.NotFoundError, () => {
       throw Boom.notFound('No post found with given Id');

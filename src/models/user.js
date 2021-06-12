@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 
 import bookshelf from '../db';
 import Post from './post';
+import Comment from './comment';
 
 const TABLE_NAME = 'users';
 
@@ -102,10 +103,21 @@ class User extends bookshelf.Model {
   }
 
   /**
-   * Associate posts to user.
+   * Define has many posts association.
+   *
+   * @returns {Model}
    */
   posts() {
-    return this.hasMany(Post);
+    return this.hasMany(Post, 'user');
+  }
+
+  /**
+   * Define has many comments association.
+   *
+   * @returns {Model}
+   */
+  comments() {
+    return this.hasMany(Comment, 'user');
   }
 }
 

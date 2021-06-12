@@ -1,9 +1,17 @@
 import { Router } from 'express';
 
+import postCommentRoutes from './postCommentRoutes';
+
 import * as postController from '../controllers/posts';
 import * as postValidator from '../validators/postValidator';
 
 const router = Router();
+
+router.use(
+  '/:id/comments',
+  postValidator.findPost,
+  postCommentRoutes,
+);
 
 /**
  * GET /api/posts.

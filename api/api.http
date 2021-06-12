@@ -21,7 +21,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "eliz@example.com",
+  "email": "jennifer@example.com",
   "password": "test1234"
 }
 
@@ -32,9 +32,9 @@ Content-Type: application/json
 # Get all users
 GET http://localhost:3000/api/users
 
-###
+###3
 # Get user by id
-GET http://localhost:3000/api/users/4
+GET http://localhost:3000/api/users/1
 
 ###
 # Create new user
@@ -50,17 +50,17 @@ Content-Type: application/json
 
 ###
 # Update user
-PUT http://localhost:3000/api/users/13
+PUT http://localhost:3000/api/users/21
 Content-Type: application/json
 
 {
-  "name": "user13",
-  "email": "user13@projectorv2.io"
+  "name": "user21",
+  "email": "user21@projectorv2.io"
 }
 
 ###
 # Delete user
-DELETE http://localhost:3000/api/users/13
+DELETE http://localhost:3000/api/users/21
 
 
 
@@ -84,21 +84,62 @@ Content-Type: application/json
   "name": "post14",
   "summary": "post 14 summary",
   "description": "post 14 description",
-  "user_id": "4"
+  "user": "1"
 }
 
 ###
 # Update post
-PUT http://localhost:3000/api/posts/11
+PUT http://localhost:3000/api/posts/7
 Content-Type: application/json
 
 {
-  "name": "post11",
-  "summary": "post 11 summary",
-  "description": "post 11 very long description"
+  "name": "post7",
+  "summary": "post 7 summary",
+  "description": "post 7 very long description"
 }
 
 ###
 # Delete post
-DELETE http://localhost:3000/api/posts/11
+DELETE http://localhost:3000/api/posts/7
+
+
+
+# Comment apis
+
+###
+# Get all comments related to a post
+GET http://localhost:3000/api/posts/2/comments
+
+###
+# Create new comment
+POST http://localhost:3000/api/posts/2/comments
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzNTE5NjQxLCJleHAiOjE2MzEyOTU2NDF9.EMyjIWnVZgIS3CsbB9fX4wqvsu6mdoFQ8RT0KMuuKzE
+
+{
+  "comment": "loulou's new comment on post 2"
+}
+
+###
+# Get all comments
+GET http://localhost:3000/api/comments
+
+###
+# Get comment by id
+GET http://localhost:3000/api/comments/41c04f51-91ba-437e-ba53-8c80c8a28f1d
+
+###
+# Update comment
+PUT http://localhost:3000/api/comments/0ca882e7-0835-4042-9521-74cb546fbcb5
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNjIzNTE5NjQxLCJleHAiOjE2MzEyOTU2NDF9.EMyjIWnVZgIS3CsbB9fX4wqvsu6mdoFQ8RT0KMuuKzE
+
+{
+  "comment": "Dras mollis nisi parturient mi nec aliquet suspendisse sagittis eros condimentum scelerisque taciti mattis praesent feugiat eu nascetur a tincidunt"
+}
+
+###
+# Delete comment
+DELETE http://localhost:3000/api/comments/598926c4-d0b0-48a6-a4ca-9d5759f71461
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiaWF0IjoxNjIzNTIzNDc2LCJleHAiOjE2MzEyOTk0NzZ9.Yi7ftckizknK5h3AaUceE5JW65crQKYGlLN-uhwXADU
 
