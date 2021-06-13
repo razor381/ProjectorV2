@@ -9,7 +9,6 @@ const schema = Joi.object({
   name: Joi
     .string()
     .label('Name')
-    .alphanum()
     .min(4)
     .max(30),
 

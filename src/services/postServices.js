@@ -29,11 +29,14 @@ export function getPost(id) {
 /**
  * Create new post.
  *
+ * @param {String} user
  * @param {Object} post
  * @returns {Promise}
  */
-export function createPost(post) {
-  return new Post(post).save();
+export function createPost(user, post) {
+  const postBody = { ...post, user };
+
+  return new Post(postBody).save();
 }
 
 /**

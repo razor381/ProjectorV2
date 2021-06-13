@@ -56,11 +56,15 @@ async function findUserFromDB(userId) {
  * @param {Promise} next
  */
 export default async function setLoggedInUser (req, res, next) {
-  const token = extractToken(req);
-  const decodedPayload = await decodeToken(token);
-  const user = await findUserFromDB(decodedPayload.id);
+  try {
+    const token = extractToken(req);
+    const decodedPayload = await decodeToken(token);
+    const user = await findUserFromDB(decodedPayload.id);
 
-  req.user = user;
+    req.user = user;
 
-  return next();
+    return next();
+  } catch (err) {
+    return next(err);
+  }
 }

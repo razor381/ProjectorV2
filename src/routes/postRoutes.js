@@ -4,6 +4,8 @@ import postCommentRoutes from './postCommentRoutes';
 
 import * as postController from '../controllers/posts';
 import * as postValidator from '../validators/postValidator';
+import * as imageUploadHandler from '../middlewares/imageUploadHandler';
+import setLoggedInUser from '../middlewares/auth/setLoggedInUser';
 
 const router = Router();
 
@@ -31,11 +33,15 @@ router.get(
 );
 
 /**
+ * Routes below this middleware requires loggedin user.
+ */
+router.use(setLoggedInUser);
+
+/**
  * POST /api/posts.
  */
 router.post(
   '/',
-  postValidator.findPostUser,
   postValidator.validatePost,
   postController.create,
 );
@@ -46,6 +52,8 @@ router.post(
 router.put(
   '/:id',
   postValidator.findPost,
+  imageUploadHandler.extractImage('image_cover'),
+  imageUploadHandler.formatAndSaveImage,
   postValidator.validatePost,
   postController.update,
 );

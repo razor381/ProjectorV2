@@ -43,7 +43,7 @@ class User extends bookshelf.Model {
    * Encrypt plain text password and save to db.
    */
   async encryptAndSavePassword() {
-    if (!this.hasChanged) return;
+    if (!this.hasChanged('password')) return;
 
     const encryptedPassword = await encrypt(this.attributes.password);
 

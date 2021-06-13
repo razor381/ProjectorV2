@@ -1,5 +1,5 @@
 @api=http://localhost:3000/api
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTI1MDQzLCJleHAiOjE2MzEzMDEwNDN9.o8pTAA_JXE5zE_xJlt4wi6bz6E4YRMmFIrqg13yCAvg
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTcwMzY2LCJleHAiOjE2MzEzNDYzNjZ9.zdEisp83qyF8tt292hyvY4JImLqHC0ZvzTzs1rwURuE
 
 
 # Auth apis
@@ -64,6 +64,22 @@ Content-Type: application/json
 DELETE {{api}}/users/21
 
 
+# Logged In User apis
+
+###
+# Get current user data
+GET {{api}}/profile
+Authorization: Bearer {{token}}
+
+###
+# Update current user
+PUT {{api}}/profile
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "name": "Rujal Shrestha"
+}
 
 
 # Post apis
@@ -74,18 +90,18 @@ GET {{api}}/posts
 
 ###
 # Get post by id
-GET {{api}}/posts/1
+GET {{api}}/posts/7
 
 ###
 # Create new post
 POST {{api}}/posts
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "name": "post14",
-  "summary": "post 14 summary",
-  "description": "post 14 description",
-  "user": "1"
+  "name": "post with image",
+  "summary": "test post with image",
+  "description": "post uploaded by admin, contains image file"
 }
 
 ###
