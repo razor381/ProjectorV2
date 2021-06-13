@@ -22,7 +22,7 @@ export function getUser(id) {
     .fetch({ withRelated: ['posts'] })
     .then((user) => user)
     .catch(User.NotFoundError, () => {
-      throw Boom.notFound('No user found with give id');
+      throw Boom.notFound('No user found with given Id');
     });
 }
 
@@ -55,4 +55,19 @@ export function updateUser(id, user) {
  */
 export function deleteUser(id) {
   return new User({ id }).fetch().then((user) => user.destroy());
+}
+
+/**
+ * Get user by email.
+ *
+ * @param {String|Number} email
+ * @returns {Promise}
+ */
+ export function getUserByEmail(email) {
+  return new User({ email })
+    .fetchWithHiddenAttributes()
+    .then((user) => user)
+    .catch(User.NotFoundError, () => {
+      throw Boom.notFound('No user found with given email');
+    });
 }

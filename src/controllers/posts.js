@@ -39,7 +39,7 @@ export function fetchById(req, res, next) {
  */
 export function create(req, res, next) {
   postServices
-    .createPost(req.body)
+    .createPost(req.user.id, req.body)
     .then((data) => res.status(HttpStatus.CREATED).json({ data }))
     .catch((err) => next(err));
 }

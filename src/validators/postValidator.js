@@ -9,7 +9,6 @@ const schema = Joi.object({
   name: Joi
     .string()
     .label('Name')
-    .alphanum()
     .min(4)
     .max(30),
 
@@ -31,7 +30,7 @@ const schema = Joi.object({
     .items(Joi.string())
     .label('Images'),
 
-  user_id: Joi
+  user: Joi
     .number()
     .integer()
     .label('User Id'),
@@ -45,7 +44,7 @@ const schema = Joi.object({
  * @param {Function} next
  */
 export function findPostUser(req, res, next) {
-  return getUser(req.body.user_id)
+  return getUser(req.body.user)
     .then(() => next())
     .catch((err) => next(err));
 }
