@@ -8,7 +8,9 @@ import Post from '../models/post';
  * @returns {Promise}
  */
 export function getAllPosts() {
-  return Post.fetchAll({ withRelated: ['user'] });
+  return Post
+    .query((qb) => qb.orderBy('updated_at', 'DESC'))
+    .fetchAll({ withRelated: ['user', 'comments'] });
 }
 
 /**

@@ -8,7 +8,10 @@ import User from '../models/user';
  * @returns {Promise}
  */
 export function getAllUsers() {
-  return User.fetchAll();
+  return User
+    .where({})
+    .orderBy('updated_at', 'DESC')
+    .fetchAll();
 }
 
 /**

@@ -94,55 +94,6 @@ exports.seed = function(knex) {
           "password": "$2a$12$.XIvvmznHQSa9UOI639yhe4vzHKCYO1vpTUZc4d45oiT4GOZQe1kS"
         },
         {
-          "name": "Ben Hadley",
-          "email": "ben@example.com",
-          "role": "mentor",
-          "photo": "user-13.jpg",
-          "password": "$2a$12$D3fyuS9ETdBBw5lOwceTMuZcDTyVq28ieeGUAanIuLMcSDz6bpfIe"
-        },
-        {
-          "name": "Laura Wilson",
-          "email": "laura@example.com",
-          "role": "user",
-          "photo": "user-14.jpg",
-          "password": "$2a$12$VPYaAAOsI44uhq11WbZ5R.cHT4.fGdlI9gKJd95jmYw3.sAsmbvBq"
-        },
-        {
-          "name": "Max Smith",
-          "email": "max@example.com",
-          "role": "user",
-          "photo": "user-15.jpg",
-          "password": "$2a$12$l5qamwqcqC2NlgN6o5A5..9Fxzr6X.bjx/8j3a9jYUHWGOL99oXlm"
-        },
-        {
-          "name": "Isabel Kirkland",
-          "email": "isabel@example.com",
-          "role": "user",
-          "photo": "user-16.jpg",
-          "password": "$2a$12$IUnwPH0MGFeMuz7g4gtfvOll.9wgLyxG.9C3TKlttfLtCQWEE6GIu"
-        },
-        {
-          "name": "Alexander Jones",
-          "email": "alex@example.com",
-          "role": "user",
-          "photo": "user-17.jpg",
-          "password": "$2a$12$NnclhoYFNcSApoQ3ML8kk.b4B3gbpOmZJLfqska07miAnXukOgK6y"
-        },
-        {
-          "name": "Eduardo Hernandez",
-          "email": "edu@example.com",
-          "role": "user",
-          "photo": "user-18.jpg",
-          "password": "$2a$12$uB5H1OxLMOqDYTuTlptAoewlovENJvjrLwzsL1wUZ6OkAIByPPBGq"
-        },
-        {
-          "name": "John Riley",
-          "email": "john@example.com",
-          "role": "user",
-          "photo": "user-19.jpg",
-          "password": "$2a$12$11JElTatQlAFo1Obw/dwd..vuVmQyYS7MT14pkl3lRvVPjGA00G8O"
-        },
-        {
           "name": "Lisa Brown",
           "email": "lisa@example.com",
           "role": "user",

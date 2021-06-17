@@ -1,5 +1,5 @@
 @api=http://localhost:3000/api
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzNTcwMzY2LCJleHAiOjE2MzEzNDYzNjZ9.zdEisp83qyF8tt292hyvY4JImLqHC0ZvzTzs1rwURuE
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzOTIwMjA3LCJleHAiOjE2MzE2OTYyMDd9.lw_5F7P3z56sjXrIuhyLZE3ySPXfCr_ZsrrQHvI15LE
 
 
 # Auth apis
@@ -99,20 +99,19 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-  "name": "post with image",
-  "summary": "test post with image",
-  "description": "post uploaded by admin, contains image file"
+  "name": "BREAKING NEWS!",
+  "summary": "Dogecoin value has finally reached the moon.",
+  "description": "Dogecoin value has finally reached the moon. After an Elon Musk tweet, stating that Tesla will now accept transactions using Dogecoin, the value of this currency has increased by 10 folds!"
 }
 
 ###
 # Update post
-PUT {{api}}/posts/7
+PUT {{api}}/posts/1
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
-  "name": "post7",
-  "summary": "post 7 summary",
-  "description": "post 7 very long description"
+  "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters."
 }
 
 ###

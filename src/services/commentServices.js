@@ -31,6 +31,7 @@ import Comment from '../models/comment';
 export function getPostComments(post) {
   return Comment
     .where({ post })
+    .orderBy('updated_at', 'DESC')
     .fetchAll({ withRelated: ['user'] });
 }
 
