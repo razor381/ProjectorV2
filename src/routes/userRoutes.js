@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import * as userController from '../controllers/users';
 import { findUser, validateUser } from '../validators/userValidator';
+import setLoggedInUser, { restrictToAdmin } from '../middlewares/auth/setLoggedInUser';
 
 const router = Router();
 
@@ -46,6 +47,8 @@ router.put(
  */
 router.delete(
   '/:id',
+  setLoggedInUser,
+  restrictToAdmin,
   findUser,
   userController.remove,
 );

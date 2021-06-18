@@ -68,3 +68,18 @@ export default async function setLoggedInUser (req, res, next) {
     return next(err);
   }
 }
+
+/**
+ * Restrict routes to certain user roles only.
+ * 
+ * @param {Object} req 
+ * @param {Object} res 
+ * @param {Function} next 
+ */
+export function restrictToAdmin (req, res ,next) {
+  if (req.user.role !== 'admin') {
+    return next(Boom.unauthorized('You are not permitted to perform this action!'));
+  }
+  
+  next();
+}

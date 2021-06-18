@@ -1,5 +1,5 @@
 @api=http://localhost:3000/api
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzOTIwMjA3LCJleHAiOjE2MzE2OTYyMDd9.lw_5F7P3z56sjXrIuhyLZE3ySPXfCr_ZsrrQHvI15LE
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjIzOTk3MjgxLCJleHAiOjE2MzE3NzMyODF9.0NcePwxW2EhhE7iW3r3Gjmm2Mi-DvbEzELJJvAAGsyg
 
 
 # Auth apis
@@ -53,6 +53,7 @@ Content-Type: application/json
 # Update user
 PUT {{api}}/users/21
 Content-Type: application/json
+Authorization: Bearer {{token}}
 
 {
   "name": "user21",
@@ -61,7 +62,8 @@ Content-Type: application/json
 
 ###
 # Delete user
-DELETE {{api}}/users/21
+DELETE {{api}}/users/1
+Authorization: Bearer {{token}}
 
 
 # Logged In User apis
@@ -156,6 +158,6 @@ Authorization: Bearer {{token}}
 
 ###
 # Delete comment
-DELETE {{api}}/comments/f3bd90a0-7206-4539-9faa-d6429c32659b
+DELETE {{api}}/comments/462a4064-2f31-431d-b6fb-b4556949d9cc
 Authorization: Bearer {{token}}
 
